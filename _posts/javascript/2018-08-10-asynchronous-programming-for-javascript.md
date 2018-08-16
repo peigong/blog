@@ -4,7 +4,7 @@ title:  "前端异步编程的来龙去脉"
 categories: javascript
 ---
 
-## 异步世界 ##
+## 这个异步的世界 ##
 
 很多其他语言的工程师，总是讥讽`javascript`中的异步编程。也有很多`javascript`工程师，缺乏道路自信，自甘堕落，在编程中以消灭异步模式为能事，异步的做法、异步的写法。
 
@@ -38,13 +38,13 @@ categories: javascript
 
 对这样的人，我们要大声对他们说，同志哥，你out了。在日新月异的前端世界里，我们现在处理异步问题，已经使用`ES7`的`async-await`方案了。
 
-这个方案长成这个样子:
+这个方案长成这个样子：
 
-	async function get(){
-		let result = await fetch();
-		console.log(result);
-		return result;
-	}
+    async function get(){
+        let result = await fetch();
+        console.log(result);
+        return result;
+    }
 
 这个方案似乎看上去消灭了异步，起码消灭了异步的写法。
 
@@ -59,21 +59,21 @@ categories: javascript
 
 我们用`Promise`方案重写一遍，如下：
 
-	function get(){
-		return fetch().then((result) => {
-			console.log(result);
-			return result;
-		});
-	}
+    function get(){
+        return fetch().then((result) => {
+            console.log(result);
+            return result;
+        });
+    }
 
 用更老的`callback`方案重写一遍，如下：
 
-	function get(done){
-		fetch(function(err, result){
-			console.log(result);
-			done(null, result);
-		});
-	}
+    function get(done){
+        fetch(function(err, result){
+            console.log(result);
+            done(null, result);
+        });
+    }
 
 关于`Promise`方案和`callback`方案的进一步讨论，后文再行展开。
 
@@ -91,17 +91,17 @@ categories: javascript
 
 最后再看一组代码：
 
-	async function get(){
-		try{
-			let result1 = await fetch1();
-			let result2 = await fetch2();
-			let result3 = await fetch3();
-			let result4 = await fetch4();
-			let result5 = await fetch5();
-			console.log(result1, result2, result3, result4, result5);
-		}catch(ex){
-		}
-	}
+    async function get(){
+        try{
+            let result1 = await fetch1();
+            let result2 = await fetch2();
+            let result3 = await fetch3();
+            let result4 = await fetch4();
+            let result5 = await fetch5();
+            console.log(result1, result2, result3, result4, result5);
+        }catch(ex){
+        }
+    }
 
 这组代码疑问有二：
 
@@ -136,44 +136,44 @@ categories: javascript
 
 在讨论`Promise`对象的本质特征时，我们有必要回顾一下十八层回调地狱。对于前端老帮菜来说，当然是一种缅怀和凭吊。对前端新司机来说，那就像在太湖上的小姑娘黄蓉一样，感慨一下国破家亡的故国情怀也不错。
 
-	step1(function (value1) {
-	    step2(value1, function(value2) {
-	        step3(value2, function(value3) {
-	            step4(value3, function(value4) {
-		            step5(value4, function(value5) {
-			            step6(value5, function(value6) {
-				            step7(value6, function(value7) {
-					            step8(value7, function(value8) {
-						            step9(value8, function(value9) {
-										step10(value9, function (value10) {
-										    step11(value10, function(value11) {
-										        step12(value11, function(value12) {
-										            step13(value12, function(value13) {
-											            step14(value13, function(value14) {
-												            step15(value14, function(value15) {
-													            step16(value15, function(value16) {
-														            step17(value16, function(value17) {
-															            step18(value17, function(value18) {
-										                					// 地狱不空，誓不成佛
-																			console.log(value18);
-															            });
-														            });
-													            });
-												            });
-											            });
-										            });
-										        });
-										    });
-										});
-						            });
-					            });
-				            });
-			            });
-		            });
-	            });
-	        });
-	    });
-	});
+    step1(function (value1) {
+        step2(value1, function(value2) {
+            step3(value2, function(value3) {
+                step4(value3, function(value4) {
+                    step5(value4, function(value5) {
+                        step6(value5, function(value6) {
+                            step7(value6, function(value7) {
+                                step8(value7, function(value8) {
+                                    step9(value8, function(value9) {
+                                        step10(value9, function (value10) {
+                                            step11(value10, function(value11) {
+                                                step12(value11, function(value12) {
+                                                    step13(value12, function(value13) {
+                                                        step14(value13, function(value14) {
+                                                            step15(value14, function(value15) {
+                                                                step16(value15, function(value16) {
+                                                                    step17(value16, function(value17) {
+                                                                        step18(value17, function(value18) {
+                                                                            // 地狱不空，誓不成佛
+                                                                            console.log(value18);
+                                                                        });
+                                                                    });
+                                                                });
+                                                            });
+                                                        });
+                                                    });
+                                                });
+                                            });
+                                        });
+                                    });
+                                });
+                            });
+                        });
+                    });
+                });
+            });
+        });
+    });
 
 在历史上，有一位大菩萨，为了超度十八层回调地狱中的前端冤鬼，他说：我与你们立一个约。
 
@@ -191,20 +191,20 @@ categories: javascript
 
 实例方法，示例如下：
 
-	function get(){
-		try{
-			return fetch().then((result) => {
-				console.log(result);
-				return result;
-			}).catch((err) => {
-				console.error(err);
-			}).finally(() => {
-				// 同志，这是我的党费
-			});
-		}catch(ex){
-			// 乍会走到这儿了呢？这不科学啊！
-		}
-	}
+    function get(){
+        try{
+            return fetch().then((result) => {
+                console.log(result);
+                return result;
+            }).catch((err) => {
+                console.error(err);
+            }).finally(() => {
+                // 同志，这是我的党费
+            });
+        }catch(ex){
+            // 乍会走到这儿了呢？这不科学啊！
+        }
+    }
 
 静态方法，简要介绍：
 
@@ -213,7 +213,7 @@ categories: javascript
 - `Promise.all`：约几个朋友去K歌，不管先来后到，到齐了K起。到不了的也要电话确认下。
 - `Promise.race`：小朋友想出去玩，请示爸妈，有一个人同意就可以出去，有一个人拒绝就玩不成。SO，这个规则告诉我们，想出去玩的话，要先请示最可能同意的那个，想不出去玩的话，要先请求最可能拒绝的那个。当然爸妈里有一个嘴快的，这个策略就破功了。
 
-## 没落贵族 ##
+## 没落的贵族 ##
 
 在异步编程中，回调函数无论如何都是要提及的。其一是因为他功勋卓著的历史地位，其二是因为在编程实务中依然扮演着的重要角色。`Promise`对象的`then`方法接受的参数本身就是一个回调函数。
 
@@ -221,32 +221,32 @@ categories: javascript
 
 `Promise`对象的`then`方法中的回调：
 
-	fetch().then((data) => {
-		console.log(data);
-	}).catch((err) => {
-		console.error(err);
-	}).finally(() => {
-		console.log('说完最后一句话');
-	});
+    fetch().then((data) => {
+        console.log(data);
+    }).catch((err) => {
+        console.error(err);
+    }).finally(() => {
+        console.log('说完最后一句话');
+    });
 
 `Document`事件回调：
 
-	document.querySelector('body').addEventListener('click', function(e){
-		console.log(e);
-	});
+    document.querySelector('body').addEventListener('click', function(e){
+        console.log(e);
+    });
 
 `jQuery ajax`请求的回调
 
-	$.post('', function(res){
-		console.log(res);
-	});
+    $.post('', function(res){
+        console.log(res);
+    });
 
 `Node.js`中的回调
 
-	fs.readFile('/etc/passwd', (err, data) => {
-		if (err) throw err;
-		console.log(data);
-	});
+    fs.readFile('/etc/passwd', (err, data) => {
+        if (err) throw err;
+        console.log(data);
+    });
 
 回调函数在`javascript`王国中的重要地位，是由函数在`javascript`王国中一等公民的地位决定的。
 
@@ -265,7 +265,7 @@ categories: javascript
 
 我们以倒叙的形式，讨论了前端异步编程的来龙去脉。在这里，具体的语法、具体的用法不是那么重要。最重要的是通过讨论，要确立一种信念，一种道路自信。这个世界本来就是异步的，异步编程是人间正道，既不是因循守旧的老路，也不是改旗易帜的邪路。
 
-## 旁门左派 ##
+## 旁门源流 ##
 
 异步编程，从回调函数和流程管理的方案，发展到`Promise`对象和`Generator-yield`方案，再到`ES7`的`async-await`方案，基本上是`javascript`中处理异步问题的正统源流。
 
@@ -281,8 +281,8 @@ categories: javascript
 
 ## 参考链接 ##
 
-- [阮一峰:async 函数的含义和用法](http://www.ruanyifeng.com/blog/2015/05/async.html)
-- [阮一峰:Javascript异步编程的4种方法](http://www.ruanyifeng.com/blog/2012/12/asynchronous%EF%BC%BFjavascript.html)
+- [阮一峰：async 函数的含义和用法](http://www.ruanyifeng.com/blog/2015/05/async.html)
+- [阮一峰：Javascript异步编程的4种方法](http://www.ruanyifeng.com/blog/2012/12/asynchronous%EF%BC%BFjavascript.html)
 - [ES6系列文章 异步神器async-await](https://segmentfault.com/a/1190000011526612)
 - [ECMAScript® 2015 Language Specification](http://www.ecma-international.org/ecma-262/6.0/index.html)
 - [ECMAScript® 2016 Language Specification](http://www.ecma-international.org/ecma-262/7.0/index.html)
@@ -291,7 +291,7 @@ categories: javascript
 - [Promises](https://www.promisejs.org/)
 - [Promises/A](http://wiki.commonjs.org/wiki/Promises/A)
 - [Promises/A+](https://promisesaplus.com/)
-- [Generator - JavaScript | MDN](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Generator)
-- [Promise - JavaScript | MDN](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Promise)
+- [Generator - JavaScript - MDN](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Generator)
+- [Promise - JavaScript - MDN](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Promise)
 - [RxJS 中文文档](https://cn.rx.js.org/)
 - [kriskowal/q](http://documentup.com/kriskowal/q/)

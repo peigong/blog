@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.8.3">Jekyll</generator><link href="http://peigong.net/blog/feed.xml" rel="self" type="application/atom+xml" /><link href="http://peigong.net/blog/" rel="alternate" type="text/html" /><updated>2018-08-16T15:43:43+08:00</updated><id>http://peigong.net/blog/</id><title type="html">诗和远方</title><subtitle>除了眼前的苟且，我们还有诗和远方。</subtitle><entry><title type="html">前端异步编程的来龙去脉</title><link href="http://peigong.net/blog/javascript/2018/08/10/asynchronous-programming-for-javascript.html" rel="alternate" type="text/html" title="前端异步编程的来龙去脉" /><published>2018-08-10T00:00:00+08:00</published><updated>2018-08-10T00:00:00+08:00</updated><id>http://peigong.net/blog/javascript/2018/08/10/asynchronous-programming-for-javascript</id><content type="html" xml:base="http://peigong.net/blog/javascript/2018/08/10/asynchronous-programming-for-javascript.html">&lt;h2 id=&quot;异步世界&quot;&gt;异步世界&lt;/h2&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.8.3">Jekyll</generator><link href="http://peigong.net/blog/feed.xml" rel="self" type="application/atom+xml" /><link href="http://peigong.net/blog/" rel="alternate" type="text/html" /><updated>2018-08-16T17:40:09+08:00</updated><id>http://peigong.net/blog/</id><title type="html">诗和远方</title><subtitle>除了眼前的苟且，我们还有诗和远方。</subtitle><entry><title type="html">前端异步编程的来龙去脉</title><link href="http://peigong.net/blog/javascript/2018/08/10/asynchronous-programming-for-javascript.html" rel="alternate" type="text/html" title="前端异步编程的来龙去脉" /><published>2018-08-10T00:00:00+08:00</published><updated>2018-08-10T00:00:00+08:00</updated><id>http://peigong.net/blog/javascript/2018/08/10/asynchronous-programming-for-javascript</id><content type="html" xml:base="http://peigong.net/blog/javascript/2018/08/10/asynchronous-programming-for-javascript.html">&lt;h2 id=&quot;这个异步的世界&quot;&gt;这个异步的世界&lt;/h2&gt;
 
 &lt;p&gt;很多其他语言的工程师，总是讥讽&lt;code class=&quot;highlighter-rouge&quot;&gt;javascript&lt;/code&gt;中的异步编程。也有很多&lt;code class=&quot;highlighter-rouge&quot;&gt;javascript&lt;/code&gt;工程师，缺乏道路自信，自甘堕落，在编程中以消灭异步模式为能事，异步的做法、异步的写法。&lt;/p&gt;
 
@@ -32,12 +32,12 @@
 
 &lt;p&gt;对这样的人，我们要大声对他们说，同志哥，你out了。在日新月异的前端世界里，我们现在处理异步问题，已经使用&lt;code class=&quot;highlighter-rouge&quot;&gt;ES7&lt;/code&gt;的&lt;code class=&quot;highlighter-rouge&quot;&gt;async-await&lt;/code&gt;方案了。&lt;/p&gt;
 
-&lt;p&gt;这个方案长成这个样子:&lt;/p&gt;
+&lt;p&gt;这个方案长成这个样子：&lt;/p&gt;
 
 &lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;k&quot;&gt;async&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;get&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(){&lt;/span&gt;
-	&lt;span class=&quot;nx&quot;&gt;let&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;result&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;await&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;fetch&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;();&lt;/span&gt;
-	&lt;span class=&quot;nx&quot;&gt;console&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;log&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;result&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
-	&lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;result&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+    &lt;span class=&quot;nx&quot;&gt;let&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;result&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;await&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;fetch&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;();&lt;/span&gt;
+    &lt;span class=&quot;nx&quot;&gt;console&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;log&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;result&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;result&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
 &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
@@ -57,20 +57,20 @@
 &lt;p&gt;我们用&lt;code class=&quot;highlighter-rouge&quot;&gt;Promise&lt;/code&gt;方案重写一遍，如下：&lt;/p&gt;
 
 &lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;function get(){
-	return fetch().then((result) =&amp;gt; {
-		console.log(result);
-		return result;
-	});
+    return fetch().then((result) =&amp;gt; {
+        console.log(result);
+        return result;
+    });
 }
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
 &lt;p&gt;用更老的&lt;code class=&quot;highlighter-rouge&quot;&gt;callback&lt;/code&gt;方案重写一遍，如下：&lt;/p&gt;
 
 &lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;function get(done){
-	fetch(function(err, result){
-		console.log(result);
-		done(null, result);
-	});
+    fetch(function(err, result){
+        console.log(result);
+        done(null, result);
+    });
 }
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
@@ -91,15 +91,15 @@
 &lt;p&gt;最后再看一组代码：&lt;/p&gt;
 
 &lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;k&quot;&gt;async&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;get&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(){&lt;/span&gt;
-	&lt;span class=&quot;k&quot;&gt;try&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-		&lt;span class=&quot;nx&quot;&gt;let&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;result1&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;await&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;fetch1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;();&lt;/span&gt;
-		&lt;span class=&quot;nx&quot;&gt;let&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;result2&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;await&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;fetch2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;();&lt;/span&gt;
-		&lt;span class=&quot;nx&quot;&gt;let&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;result3&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;await&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;fetch3&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;();&lt;/span&gt;
-		&lt;span class=&quot;nx&quot;&gt;let&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;result4&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;await&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;fetch4&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;();&lt;/span&gt;
-		&lt;span class=&quot;nx&quot;&gt;let&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;result5&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;await&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;fetch5&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;();&lt;/span&gt;
-		&lt;span class=&quot;nx&quot;&gt;console&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;log&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;result1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;result2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;result3&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;result4&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;result5&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
-	&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;catch&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;ex&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;){&lt;/span&gt;
-	&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;try&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+        &lt;span class=&quot;nx&quot;&gt;let&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;result1&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;await&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;fetch1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;();&lt;/span&gt;
+        &lt;span class=&quot;nx&quot;&gt;let&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;result2&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;await&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;fetch2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;();&lt;/span&gt;
+        &lt;span class=&quot;nx&quot;&gt;let&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;result3&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;await&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;fetch3&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;();&lt;/span&gt;
+        &lt;span class=&quot;nx&quot;&gt;let&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;result4&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;await&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;fetch4&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;();&lt;/span&gt;
+        &lt;span class=&quot;nx&quot;&gt;let&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;result5&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;await&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;fetch5&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;();&lt;/span&gt;
+        &lt;span class=&quot;nx&quot;&gt;console&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;log&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;result1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;result2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;result3&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;result4&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;result5&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;catch&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;ex&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;){&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
 &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
@@ -144,36 +144,36 @@
     step2(value1, function(value2) {
         step3(value2, function(value3) {
             step4(value3, function(value4) {
-	            step5(value4, function(value5) {
-		            step6(value5, function(value6) {
-			            step7(value6, function(value7) {
-				            step8(value7, function(value8) {
-					            step9(value8, function(value9) {
-									step10(value9, function (value10) {
-									    step11(value10, function(value11) {
-									        step12(value11, function(value12) {
-									            step13(value12, function(value13) {
-										            step14(value13, function(value14) {
-											            step15(value14, function(value15) {
-												            step16(value15, function(value16) {
-													            step17(value16, function(value17) {
-														            step18(value17, function(value18) {
-									                					// 地狱不空，誓不成佛
-																		console.log(value18);
-														            });
-													            });
-												            });
-											            });
-										            });
-									            });
-									        });
-									    });
-									});
-					            });
-				            });
-			            });
-		            });
-	            });
+                step5(value4, function(value5) {
+                    step6(value5, function(value6) {
+                        step7(value6, function(value7) {
+                            step8(value7, function(value8) {
+                                step9(value8, function(value9) {
+                                    step10(value9, function (value10) {
+                                        step11(value10, function(value11) {
+                                            step12(value11, function(value12) {
+                                                step13(value12, function(value13) {
+                                                    step14(value13, function(value14) {
+                                                        step15(value14, function(value15) {
+                                                            step16(value15, function(value16) {
+                                                                step17(value16, function(value17) {
+                                                                    step18(value17, function(value18) {
+                                                                        // 地狱不空，誓不成佛
+                                                                        console.log(value18);
+                                                                    });
+                                                                });
+                                                            });
+                                                        });
+                                                    });
+                                                });
+                                            });
+                                        });
+                                    });
+                                });
+                            });
+                        });
+                    });
+                });
             });
         });
     });
@@ -197,18 +197,18 @@
 &lt;p&gt;实例方法，示例如下：&lt;/p&gt;
 
 &lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;function get(){
-	try{
-		return fetch().then((result) =&amp;gt; {
-			console.log(result);
-			return result;
-		}).catch((err) =&amp;gt; {
-			console.error(err);
-		}).finally(() =&amp;gt; {
-			// 同志，这是我的党费
-		});
-	}catch(ex){
-		// 乍会走到这儿了呢？这不科学啊！
-	}
+    try{
+        return fetch().then((result) =&amp;gt; {
+            console.log(result);
+            return result;
+        }).catch((err) =&amp;gt; {
+            console.error(err);
+        }).finally(() =&amp;gt; {
+            // 同志，这是我的党费
+        });
+    }catch(ex){
+        // 乍会走到这儿了呢？这不科学啊！
+    }
 }
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
@@ -221,7 +221,7 @@
   &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Promise.race&lt;/code&gt;：小朋友想出去玩，请示爸妈，有一个人同意就可以出去，有一个人拒绝就玩不成。SO，这个规则告诉我们，想出去玩的话，要先请示最可能同意的那个，想不出去玩的话，要先请求最可能拒绝的那个。当然爸妈里有一个嘴快的，这个策略就破功了。&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;h2 id=&quot;没落贵族&quot;&gt;没落贵族&lt;/h2&gt;
+&lt;h2 id=&quot;没落的贵族&quot;&gt;没落的贵族&lt;/h2&gt;
 
 &lt;p&gt;在异步编程中，回调函数无论如何都是要提及的。其一是因为他功勋卓著的历史地位，其二是因为在编程实务中依然扮演着的重要角色。&lt;code class=&quot;highlighter-rouge&quot;&gt;Promise&lt;/code&gt;对象的&lt;code class=&quot;highlighter-rouge&quot;&gt;then&lt;/code&gt;方法接受的参数本身就是一个回调函数。&lt;/p&gt;
 
@@ -230,33 +230,33 @@
 &lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Promise&lt;/code&gt;对象的&lt;code class=&quot;highlighter-rouge&quot;&gt;then&lt;/code&gt;方法中的回调：&lt;/p&gt;
 
 &lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;fetch().then((data) =&amp;gt; {
-	console.log(data);
+    console.log(data);
 }).catch((err) =&amp;gt; {
-	console.error(err);
+    console.error(err);
 }).finally(() =&amp;gt; {
-	console.log('说完最后一句话');
+    console.log('说完最后一句话');
 });
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
 &lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Document&lt;/code&gt;事件回调：&lt;/p&gt;
 
 &lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;document.querySelector('body').addEventListener('click', function(e){
-	console.log(e);
+    console.log(e);
 });
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
 &lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;jQuery ajax&lt;/code&gt;请求的回调&lt;/p&gt;
 
 &lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;$.post('', function(res){
-	console.log(res);
+    console.log(res);
 });
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
 &lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Node.js&lt;/code&gt;中的回调&lt;/p&gt;
 
 &lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;fs.readFile('/etc/passwd', (err, data) =&amp;gt; {
-	if (err) throw err;
-	console.log(data);
+    if (err) throw err;
+    console.log(data);
 });
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
@@ -279,7 +279,7 @@
 
 &lt;p&gt;我们以倒叙的形式，讨论了前端异步编程的来龙去脉。在这里，具体的语法、具体的用法不是那么重要。最重要的是通过讨论，要确立一种信念，一种道路自信。这个世界本来就是异步的，异步编程是人间正道，既不是因循守旧的老路，也不是改旗易帜的邪路。&lt;/p&gt;
 
-&lt;h2 id=&quot;旁门左派&quot;&gt;旁门左派&lt;/h2&gt;
+&lt;h2 id=&quot;旁门源流&quot;&gt;旁门源流&lt;/h2&gt;
 
 &lt;p&gt;异步编程，从回调函数和流程管理的方案，发展到&lt;code class=&quot;highlighter-rouge&quot;&gt;Promise&lt;/code&gt;对象和&lt;code class=&quot;highlighter-rouge&quot;&gt;Generator-yield&lt;/code&gt;方案，再到&lt;code class=&quot;highlighter-rouge&quot;&gt;ES7&lt;/code&gt;的&lt;code class=&quot;highlighter-rouge&quot;&gt;async-await&lt;/code&gt;方案，基本上是&lt;code class=&quot;highlighter-rouge&quot;&gt;javascript&lt;/code&gt;中处理异步问题的正统源流。&lt;/p&gt;
 
@@ -298,8 +298,8 @@
 &lt;h2 id=&quot;参考链接&quot;&gt;参考链接&lt;/h2&gt;
 
 &lt;ul&gt;
-  &lt;li&gt;&lt;a href=&quot;http://www.ruanyifeng.com/blog/2015/05/async.html&quot;&gt;阮一峰:async 函数的含义和用法&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;http://www.ruanyifeng.com/blog/2012/12/asynchronous%EF%BC%BFjavascript.html&quot;&gt;阮一峰:Javascript异步编程的4种方法&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;http://www.ruanyifeng.com/blog/2015/05/async.html&quot;&gt;阮一峰：async 函数的含义和用法&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;http://www.ruanyifeng.com/blog/2012/12/asynchronous%EF%BC%BFjavascript.html&quot;&gt;阮一峰：Javascript异步编程的4种方法&lt;/a&gt;&lt;/li&gt;
   &lt;li&gt;&lt;a href=&quot;https://segmentfault.com/a/1190000011526612&quot;&gt;ES6系列文章 异步神器async-await&lt;/a&gt;&lt;/li&gt;
   &lt;li&gt;&lt;a href=&quot;http://www.ecma-international.org/ecma-262/6.0/index.html&quot;&gt;ECMAScript® 2015 Language Specification&lt;/a&gt;&lt;/li&gt;
   &lt;li&gt;&lt;a href=&quot;http://www.ecma-international.org/ecma-262/7.0/index.html&quot;&gt;ECMAScript® 2016 Language Specification&lt;/a&gt;&lt;/li&gt;
@@ -308,29 +308,11 @@
   &lt;li&gt;&lt;a href=&quot;https://www.promisejs.org/&quot;&gt;Promises&lt;/a&gt;&lt;/li&gt;
   &lt;li&gt;&lt;a href=&quot;http://wiki.commonjs.org/wiki/Promises/A&quot;&gt;Promises/A&lt;/a&gt;&lt;/li&gt;
   &lt;li&gt;&lt;a href=&quot;https://promisesaplus.com/&quot;&gt;Promises/A+&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;
-    &lt;table&gt;
-      &lt;tbody&gt;
-        &lt;tr&gt;
-          &lt;td&gt;[Generator - JavaScript&lt;/td&gt;
-          &lt;td&gt;MDN](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Generator)&lt;/td&gt;
-        &lt;/tr&gt;
-      &lt;/tbody&gt;
-    &lt;/table&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;table&gt;
-      &lt;tbody&gt;
-        &lt;tr&gt;
-          &lt;td&gt;[Promise - JavaScript&lt;/td&gt;
-          &lt;td&gt;MDN](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Promise)&lt;/td&gt;
-        &lt;/tr&gt;
-      &lt;/tbody&gt;
-    &lt;/table&gt;
-  &lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Generator&quot;&gt;Generator - JavaScript - MDN&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Promise&quot;&gt;Promise - JavaScript - MDN&lt;/a&gt;&lt;/li&gt;
   &lt;li&gt;&lt;a href=&quot;https://cn.rx.js.org/&quot;&gt;RxJS 中文文档&lt;/a&gt;&lt;/li&gt;
   &lt;li&gt;&lt;a href=&quot;http://documentup.com/kriskowal/q/&quot;&gt;kriskowal/q&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;</content><author><name></name></author><summary type="html">异步世界</summary></entry><entry><title type="html">新时代的教育</title><link href="http://peigong.net/blog/economics/2018/08/09/education-in-the-new-era.html" rel="alternate" type="text/html" title="新时代的教育" /><published>2018-08-09T00:00:00+08:00</published><updated>2018-08-09T00:00:00+08:00</updated><id>http://peigong.net/blog/economics/2018/08/09/education-in-the-new-era</id><content type="html" xml:base="http://peigong.net/blog/economics/2018/08/09/education-in-the-new-era.html">&lt;h2 id=&quot;作为投资的教育&quot;&gt;作为投资的教育&lt;/h2&gt;
+&lt;/ul&gt;</content><author><name></name></author><summary type="html">这个异步的世界</summary></entry><entry><title type="html">新时代的教育</title><link href="http://peigong.net/blog/economics/2018/08/09/education-in-the-new-era.html" rel="alternate" type="text/html" title="新时代的教育" /><published>2018-08-09T00:00:00+08:00</published><updated>2018-08-09T00:00:00+08:00</updated><id>http://peigong.net/blog/economics/2018/08/09/education-in-the-new-era</id><content type="html" xml:base="http://peigong.net/blog/economics/2018/08/09/education-in-the-new-era.html">&lt;h2 id=&quot;作为投资的教育&quot;&gt;作为投资的教育&lt;/h2&gt;
 
 &lt;p&gt;教育是一种投资，这个观点基本上都是认可的。但是，要说教育是最好的投资标的，也许就不再能得到广泛的一般认可。&lt;/p&gt;
 
