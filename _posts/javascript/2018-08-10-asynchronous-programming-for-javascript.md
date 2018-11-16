@@ -261,7 +261,7 @@ categories: javascript
 说到回调函数，有两个事情非常值得一提。
 
 - `Node.js`给出了回调函数约定，`function(err, data){}`。这个约定给异常以出口，是非常好的最佳实践。
-- 流程控制库`Q`，在属于他的那个时代，一直是最火的`NPM`包，可以很好的处理回调函数的依次执行、并发执行，等等流程控制的问题。现在回过头来看，没有`ES`标准中的方案那么简洁流畅，主要是还抱有彻底同步化的邪路思想，所谓炖鱼要炖出牛肉味来，比如异步的循环什么的。不过现在他都实现成了`Promise`。
+- 流程控制库`Q`、`async`，在属于他们的那个时代，一直都是最火的`NPM`包，可以很好的处理回调函数的依次执行、并发执行，等等流程控制的问题。现在回过头来看，没有`ES`标准中的方案那么简洁流畅，主要是还抱有彻底同步化的邪路思想，所谓炖鱼要炖出牛肉味来，比如异步的循环什么的。不过现在他都实现成了`Promise`。
 
 我们以倒叙的形式，讨论了前端异步编程的来龙去脉。在这里，具体的语法、具体的用法不是那么重要。最重要的是通过讨论，要确立一种信念，一种道路自信。这个世界本来就是异步的，异步编程是人间正道，既不是因循守旧的老路，也不是改旗易帜的邪路。
 
@@ -295,3 +295,4 @@ categories: javascript
 - [Promise - JavaScript - MDN](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Promise)
 - [RxJS 中文文档](https://cn.rx.js.org/)
 - [kriskowal/q](http://documentup.com/kriskowal/q/)
+- [caolan/async](http://caolan.github.io/async/)
